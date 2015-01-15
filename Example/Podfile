@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SBTActionController', :exclusive => true do
+  pod "SBTActionController", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "SBTActionController", :path => "../"
+
+  pod 'Kiwi'
+end

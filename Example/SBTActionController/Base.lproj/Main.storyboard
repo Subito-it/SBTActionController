@@ -18,17 +18,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QJz-Ae-Xlg">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ogl-ri-fw4">
-                            <connections>
-                                <action selector="itemTapped:" destination="vXZ-lx-hvc" id="5d1-4Y-Zys"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="QJz-Ae-Xlg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103.75" y="373.94366197183098"/>
+            <point key="canvasLocation" x="1917" y="361"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yH5-hm-97l">
@@ -46,7 +40,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mn1-rL-6b0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106.25" y="1038.3802816901407"/>
+            <point key="canvasLocation" x="1174" y="361"/>
         </scene>
     </scenes>
 </document>

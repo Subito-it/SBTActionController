@@ -52,7 +52,7 @@ SBTAction *modifyAction = [SBTAction actionWithTitle:NSLocalizedString(@"Modify 
                                              }];
 [actionController addAction:modifyAction];
 
-SBTAction *cancelAction = [SBTAction actionWithTitle:NSLocalizedString(@"Delete item", nil)
+SBTAction *cancelAction = [SBTAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
                                                style:UIAlertActionStyleCancel
                                              handler:NULL];
 [actionController addAction:cancelAction];

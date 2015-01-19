@@ -268,10 +268,9 @@
         alertController.modalPresentationStyle = UIModalPresentationPopover;
         if (barButtonItem) {
             alertController.popoverPresentationController.barButtonItem = barButtonItem;
-        } else if (view) {
-            alertController.popoverPresentationController.sourceView = view;
         } else {
-            alertController.popoverPresentationController.sourceRect = rect;
+            alertController.popoverPresentationController.sourceView = viewController.view;
+            alertController.popoverPresentationController.sourceRect = view ? view.frame : rect;
         }
     }
     self.alertControllerPresentingViewController = viewController;

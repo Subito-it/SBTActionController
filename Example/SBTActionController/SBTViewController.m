@@ -17,6 +17,85 @@
 #import "SBTViewController.h"
 #import <SBTActionController/SBTActionController.h>
 
+@interface SBTViewController () <UIPopoverPresentationControllerDelegate>
+
+@property (nonatomic, weak) UIView *sender;
+
+@end
+
 @implementation SBTViewController
+
+- (IBAction)actionOpenActionSheet:(UIBarButtonItem *)sender
+{
+    SBTActionController *actionController = [self fakeActionController];
+    [actionController presentActionsFromBarButtonItem:sender
+                                     inViewController:self
+                                             animated:YES
+                                           completion:^{
+                                               NSLog(@"Action sheet opened succefully");
+                                           }];
+}
+
+- (IBAction)actionOpenActionSheetFromRect:(UIButton *)sender
+{
+    self.sender = sender;
+    SBTActionController *actionController = [self fakeActionController];
+    [actionController presentActionsFromRect:sender.frame
+                            inViewController:self
+                                    animated:YES
+                                  completion:^{
+                                      NSLog(@"Action sheet opened succefully");
+                                  }];
+}
+
+- (IBAction)actionOpenActionSheetFromView:(UIButton *)sender
+{
+    self.sender = sender;
+    SBTActionController *actionController = [self fakeActionController];
+    [actionController presentActionsFromView:sender
+                            inViewController:self
+                                    animated:YES
+                                  completion:^{
+                                      NSLog(@"Action sheet opened succefully");
+                                  }];
+}
+
+- (SBTActionController *)fakeActionController
+{
+    SBTActionController *actionController = [SBTActionController actionControllerWithTitle:@"Take a picture"
+                                                                                   message:@"Fake it til you make it"];
+    actionController.popoverPresentationControllerDelegate = self;
+    
+    SBTAction *action = [SBTAction actionWithTitle:@"Fake action"
+                                             style:UIAlertActionStyleDefault
+                                           handler:^(SBTAction *action) {
+                                               NSLog(@"%@", action.title);
+                                           }];
+    
+    SBTAction *cancelAction = [SBTAction actionWithTitle:@"Fake cancel"
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:^(SBTAction *action) {
+                                                     NSLog(@"%@", action.title);
+                                                 }];
+    
+    SBTAction *destructiveAction = [SBTAction actionWithTitle:@"Fake destructive"
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:^(SBTAction *action) {
+                                                          NSLog(@"%@", action.title);
+                                                      }];
+    
+    [actionController addAction:action];
+    [actionController addAction:cancelAction];
+    [actionController addAction:destructiveAction];
+
+    return actionController;
+}
+
+#pragma mark - UIPopoverPresentationControllerDelegate
+
+- (void)popoverPresentationController:(UIPopoverPresentationController *)popoverPresentationController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView *__autoreleasing *)view
+{
+    *rect = self.sender.frame;
+}
 
 @end

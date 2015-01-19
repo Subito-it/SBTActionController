@@ -16,9 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-jp-nic">
+                                <rect key="frame" x="200" y="72" width="200" height="30"/>
+                                <state key="normal" title="Or tap here to open from rect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionOpenActionSheetFromRect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zre-5M-lsu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIb-mx-q3Y">
+                                <rect key="frame" x="198" y="148" width="205" height="30"/>
+                                <state key="normal" title="Or tap here to open from view">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionOpenActionSheetFromView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vM0-LI-tmo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xIb-mx-q3Y" firstAttribute="top" secondItem="M4r-jp-nic" secondAttribute="bottom" constant="46" id="4qj-Gp-V3Z"/>
+                            <constraint firstItem="M4r-jp-nic" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Hsa-3c-9mN"/>
+                            <constraint firstAttribute="centerX" secondItem="M4r-jp-nic" secondAttribute="centerX" id="lOg-5U-MQ0"/>
+                            <constraint firstAttribute="centerX" secondItem="xIb-mx-q3Y" secondAttribute="centerX" id="sRC-J1-aQa"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QJz-Ae-Xlg"/>
+                    <navigationItem key="navigationItem" id="QJz-Ae-Xlg">
+                        <barButtonItem key="rightBarButtonItem" title="Tap here" id="a9Z-8y-S2B">
+                            <connections>
+                                <action selector="actionOpenActionSheet:" destination="vXZ-lx-hvc" id="fEU-Yu-CZV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

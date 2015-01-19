@@ -27,19 +27,19 @@
 /**
  *  The action controller's title.
  */
-@property(nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *title;
 
 /**
  *  The action controller's message.
  *
  *  @discussion Does nothing when running on versions of iOS lower than 8.0 as UIActionSheet doesn't support a message string.
  */
-@property(nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *message;
 
 /**
  *  A Boolean value that indicates whether the backing UIActionSheet or UIAlertController is displayed.
  */
-@property(nonatomic, readonly, getter=isVisible) BOOL visible;
+@property (nonatomic, readonly, getter=isVisible) BOOL visible;
 
 /**
  *  The designated initializer. Initializes an SBTAlertController object with a title and a message.

@@ -291,14 +291,6 @@
 {
     UIActionSheet *actionSheet = self.actionSheet;
     
-    for (NSUInteger i = 0; i < self.actions.count; i++) {
-        SBTAction *action = self.actions[i];
-        if (action.style == UIAlertActionStyleCancel) {
-            actionSheet.cancelButtonIndex = i;
-        } else if (action.style == UIAlertActionStyleDestructive) {
-            actionSheet.destructiveButtonIndex = i;
-        }
-    }
     actionSheet.sbt_actionController = self;
     self.actionSheetPresentationCompletionBlock = [completion copy];
     if (barButtonItem) {

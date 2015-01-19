@@ -333,15 +333,17 @@
         if (cancelHandler) {
             cancelHandler(actionController.cancelAction);
         }
+        if (actionController.actionSheetDismissalCompletionBlock) {
+            actionController.actionSheetDismissalCompletionBlock();
+            actionController.actionSheetDismissalCompletionBlock = nil;
+        }
+        actionSheet.sbt_actionController = nil;
         return;
     }
+    
     SBTAction *action = actionController.actions[buttonIndex];
     if (action.handler) {
         action.handler(action);
-    }
-    if (actionController.actionSheetDismissalCompletionBlock) {
-        actionController.actionSheetDismissalCompletionBlock();
-        actionController.actionSheetDismissalCompletionBlock = nil;
     }
     actionSheet.sbt_actionController = nil;
 }

@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = "https://github.com/Subito-it/SBTActionController"
   s.license          = 'Apache License, Version 2.0'
-  s.author           = { "Mouhcine El Amine" => "mouhcine.elamine@subito.it" }
+  s.authors           = { "Mouhcine El Amine" => "mouhcine.elamine@subito.it",
+                          "Luigi Parpinel" => "luigi.parpinel@subito.it"}
   s.source           = { :git => "https://github.com/Subito-it/SBTActionController.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '5.0'

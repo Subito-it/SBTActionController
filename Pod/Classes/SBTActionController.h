@@ -42,6 +42,11 @@
 @property (nonatomic, readonly, getter=isVisible) BOOL visible;
 
 /**
+ *  The delegate that handles popover-related messages.
+ */
+@property (nonatomic, weak) id <UIPopoverPresentationControllerDelegate> popoverPresentationControllerDelegate NS_AVAILABLE_IOS(8_0);
+
+/**
  *  The designated initializer. Initializes an SBTAlertController object with a title and a message.
  *
  *  @param title   A string to display in the title area of the action sheet or the alert controller.

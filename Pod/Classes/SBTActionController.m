@@ -272,6 +272,7 @@
     UIAlertController *alertController = self.alertController;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         alertController.modalPresentationStyle = UIModalPresentationPopover;
+        alertController.popoverPresentationController.delegate = self.popoverPresentationControllerDelegate;
         if (barButtonItem) {
             alertController.popoverPresentationController.barButtonItem = barButtonItem;
         } else {

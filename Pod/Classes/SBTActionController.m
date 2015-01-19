@@ -153,6 +153,7 @@
         return;
     }
     
+   // Avoid adding cancel button to action sheet on iPad as it gets removed and its index gets set to -1
     if (action.style == UIAlertActionStyleCancel && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.cancelAction = action;
         return;

@@ -54,6 +54,7 @@
 @property (nonatomic, copy) void(^actionSheetDismissalCompletionBlock)(void);
 
 @property (nonatomic, strong) NSMutableArray *actions;
+@property (nonatomic, strong) SBTAction *cancelAction;
 
 #pragma mark - Alert controller related properties
 
@@ -152,6 +153,10 @@
         return;
     }
     
+    if (action.style == UIAlertActionStyleCancel && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.cancelAction = action;
+        return;
+    }
     NSUInteger actionIndex = self.actions.count;
     [self.actions addObject:action];
     [self.actionSheet addButtonWithTitle:action.title];
@@ -285,6 +290,15 @@
                                  completion:(void (^)(void))completion
 {
     UIActionSheet *actionSheet = self.actionSheet;
+    
+    for (NSUInteger i = 0; i < self.actions.count; i++) {
+        SBTAction *action = self.actions[i];
+        if (action.style == UIAlertActionStyleCancel) {
+            actionSheet.cancelButtonIndex = i;
+        } else if (action.style == UIAlertActionStyleDestructive) {
+            actionSheet.destructiveButtonIndex = i;
+        }
+    }
     actionSheet.sbt_actionController = self;
     self.actionSheetPresentationCompletionBlock = [completion copy];
     if (barButtonItem) {
@@ -321,6 +335,13 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     SBTActionController *actionController = actionSheet.sbt_actionController;
+    if (buttonIndex < 0) {
+        SBTActionHandler cancelHandler = actionController.cancelAction.handler;
+        if (cancelHandler) {
+            cancelHandler(actionController.cancelAction);
+        }
+        return;
+    }
     SBTAction *action = actionController.actions[buttonIndex];
     if (action.handler) {
         action.handler(action);

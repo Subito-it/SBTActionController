@@ -275,9 +275,12 @@
         alertController.popoverPresentationController.delegate = self.popoverPresentationControllerDelegate;
         if (barButtonItem) {
             alertController.popoverPresentationController.barButtonItem = barButtonItem;
+        } else if (view) {
+            alertController.popoverPresentationController.sourceView = viewController.view;
+            alertController.popoverPresentationController.sourceRect = [viewController.view convertRect:view.frame fromView:view.superview];
         } else {
             alertController.popoverPresentationController.sourceView = viewController.view;
-            alertController.popoverPresentationController.sourceRect = view ? view.frame : rect;
+            alertController.popoverPresentationController.sourceRect = rect;
         }
     }
     self.alertControllerPresentingViewController = viewController;

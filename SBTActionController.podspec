@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SBTActionController"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "SBTActionController acts as a Façade for UIActionSheet and UIAlertController"
   s.description      = <<-DESC
                        SBTActionController acts as a Façade for UIActionSheet and UIAlertController avoiding presentation related issues when using the deprecated UIActionSheet class to support pre iOS 8 versions.
